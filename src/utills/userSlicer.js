@@ -5,9 +5,9 @@ const userSlice = createSlice({
   initialState: null,
   reducers: {
     userInfo: (state, action) => {
-      state.userInfo(action.payload);
+      return action.payload;
     },
   },
 });
 export const { userInfo } = userSlice.actions;
-export default userSlice;
+export default userSlice.reducer;
