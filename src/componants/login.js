@@ -1,46 +1,32 @@
 import React, { useState } from "react";
 import { useRef } from "react";
 import Validation from "../utills/validation";
-import { useNavigate } from "react-router-dom";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
   updateProfile,
 } from "firebase/auth";
 import { Auth } from "../utills/firebase";
-import { useDispatch } from "react-redux";
-import { userInfo } from "../utills/userSlicer";
+import { Profile } from "../utills/constants";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const [inValChec, setInValCheck] = useState(null);
   const [isSignUp, setIsSignUp] = useState(false);
 
-  const navigate = useNavigate();
   const mail = useRef(null);
   const password = useRef(null);
   const Name = useRef(null);
-  const dispatche = useDispatch();
-  function handler() {
+  const navigate = useNavigate();
+
+  function isValid() {
     const message = Validation(mail.current.value, password.current.value);
     setInValCheck(message);
 
     if (!message === null) return null;
-    function userLogIn(userCredential) {
-      const user = userCredential.user;
 
-      const { uid, email, displayName, photoURL } = user;
-      dispatche(
-        userInfo({
-          uid: uid,
-          email: email,
-          diplayname: displayName,
-          photoURL: photoURL,
-        })
-      );
-      navigate("/browser");
-      // ...
-    }
+    function userLogIn(userCredential) {}
     if (isSignUp) {
       createUserWithEmailAndPassword(
         Auth,
@@ -52,9 +38,10 @@ const LogIn = () => {
 
           updateProfile(Auth.currentUser, {
             displayName: Name.current.value,
-            photoURL: "https://example.com/jane-q-user/profile.jpg",
+            photoURL: Profile,
           })
             .then(() => {
+              navigate("/browser");
               userLogIn(userCredential);
             })
             .catch((error) => {
@@ -77,7 +64,7 @@ const LogIn = () => {
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
+          navigate("/browser");
           userLogIn(userCredential);
         })
 
@@ -112,7 +99,7 @@ const LogIn = () => {
         <div className="pl-4 pr-4 m-4">
           <button
             className="text-sm w-3/4 bg-red-900 h-12 mt-4 rounded-lg"
-            onClick={handler}
+            onClick={isValid}
           >
             Sign In
           </button>

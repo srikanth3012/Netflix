@@ -1,5 +1,14 @@
 import React from "react";
+import Header from "./Header";
+import { Outlet } from "react-router-dom";
 const Body = () => {
-  return <h1>Body</h1>;
+  return (
+    <>
+      <div>
+        <Header />
+        <Outlet />
+      </div>
+    </>
+  );
 };
 export default Body;
