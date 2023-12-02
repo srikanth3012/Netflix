@@ -6,7 +6,7 @@ const Movies = ({ title, Movies }) => {
     Movies && (
       <div>
         <h1
-          id={Movies[0].genre_ids[2]}
+          id={title}
           className="text-white flex justify-start ml-6 font-semibold text-lg m-5"
         >
           {title}
