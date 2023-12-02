@@ -1,50 +1,32 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import movieCard from "./Moviecard";
+import Movies from "./Movies";
 
 const SecondContain = () => {
   const movies = useSelector((store) => store.Movies?.moviesList);
-  console.log(movies);
+  const popularMovies = useSelector((store) => store.Movies?.popularMovie);
+
   const slideRight = () => {
-    let slider = document.getElementById("slider");
+    let slider = document.getElementById("sliders");
     slider.scrollLeft = slider.scrollLeft + 300;
   };
   const slideLeft = () => {
-    let slider = document.getElementById("slider");
+    let slider = document.getElementById("sliders");
     slider.scrollLeft = slider.scrollLeft - 300;
   };
-  if (!movies) return;
+
   return (
     <>
-      <div className="">
-        {" "}
-        <h1 className=" mt-10 m-5 items-start font-semibold text-xl">
-          Now Playing
-        </h1>
-        <div className="flex">
-          <button
-            className="text-6xl bg-slate-600 rounded-full h-16  mt-10"
-            onClick={slideLeft}
-          >
-            {"<"}
-          </button>
-          <h1
-            className="text-lg flex flex-row overflow-scroll scroll-smooth"
-            id="slider"
-          >
-            {movies.map((item) => (
-              <l1 key={item.id}>
-                <Link to={"/browser/play"}>{movieCard(item)}</Link>
-              </l1>
-            ))}
-          </h1>
-          <button
-            className="text-6xl bg-slate-600 rounded-full h-16  mt-10"
-            onClick={slideRight}
-          >
-            {">"}
-          </button>
+      <div className="bg-black">
+        <div className="-mt-44 relative">
+          <div id="sliders">
+            {" "}
+            <Movies title={"Now Playing"} Movies={movies} />
+            <Movies title={"Popular Movies"} Movies={popularMovies} />
+            <Movies title={"Horror Movies"} Movies={movies} />
+            <Movies title={"Comedy Movies"} Movies={popularMovies} />
+            <Movies title={"Cartoon Movies"} Movies={movies} />
+          </div>
         </div>
       </div>
     </>

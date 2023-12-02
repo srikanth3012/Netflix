@@ -4,7 +4,7 @@ const TrailerTiltles = ({ Title, overview }) => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="absolute text-white pt-[20%] ">
+      <div className="absolute text-white pt-[16%] bg-black w-screen aspect-video -mt-32 bg-opacity-30">
         <div></div>
         <h1 className="font-semibold text-7xl w-1/2 m-5">{Title}</h1>
         <p className="w-1/2 font-semibold px-[8%] m-5">{overview}</p>

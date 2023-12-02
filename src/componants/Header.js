@@ -29,7 +29,7 @@ const Header = () => {
         // User is signed out
         // ...
         dispatche(removeUserInfo());
-        navigate("/");
+        // navigate("/");
       }
     });
     return () => unSubscribe();
@@ -47,7 +47,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="bg-gradient-to-b from-black  w-screen">
+      <div className=" w-screen relative z-20">
         <div className="flex justify-between ">
           <img
             className="w-32 h-20 "

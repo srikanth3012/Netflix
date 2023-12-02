@@ -98,7 +98,7 @@ const LogIn = () => {
         <div className="text-base font-semibold text-red-700">{inValChec}</div>
         <div className="pl-4 pr-4 m-4">
           <button
-            className="text-sm w-3/4 bg-red-900 h-12 mt-4 rounded-lg"
+            className="text-sm w-3/4 bg-red-600 h-12 mt-4 rounded-lg hover:bg-red-900"
             onClick={isValid}
           >
             Sign In
