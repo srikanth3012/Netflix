@@ -8,7 +8,8 @@ const TrailerVideo = ({ id }) => {
   const { key } = trailer;
 
   return (
-    <div className="-mt-32">
+    <div className="-mt-5 md:-mt-28">
+      {/* <div className=" w-screen h-screen bg-black bg-opacity-40 absolute"></div> */}
       <iframe
         className="w-screen aspect-video"
         src={"https://www.youtube.com/embed/" + key + "?autoplay=1&mute=1"}

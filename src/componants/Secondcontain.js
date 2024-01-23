@@ -6,20 +6,11 @@ const SecondContain = () => {
   const movies = useSelector((store) => store.Movies?.moviesList);
   const popularMovies = useSelector((store) => store.Movies?.popularMovie);
 
-  const slideRight = () => {
-    let slider = document.getElementById("sliders");
-    slider.scrollLeft = slider.scrollLeft + 300;
-  };
-  const slideLeft = () => {
-    let slider = document.getElementById("sliders");
-    slider.scrollLeft = slider.scrollLeft - 300;
-  };
-
   return (
     <>
       <div className="bg-black">
-        <div className="-mt-44 relative">
-          <div id="sliders">
+        <div className="-mt-5 md:-mt-36 relative ">
+          <div id="sliders" className="no-scrollbar overflow-y-scroll">
             {" "}
             <Movies title={"Now Playing"} Movies={movies} />
             <Movies title={"Popular Movies"} Movies={popularMovies} />

@@ -1,15 +1,12 @@
-const MovieCard = ({ item }) => {
+const MovieCard = ({ item, playbutton }) => {
   return (
     <>
-      <div>
-        <div className="w-40 ml-1 items-center ">
-          <img
-            src={"https://image.tmdb.org/t/p/w500" + item?.poster_path}
-            alt="movieImg"
-            className="ml-8 h-40 content-center"
-          />
-        </div>
-      </div>
+      <img
+        src={"https://image.tmdb.org/t/p/w500" + item?.poster_path}
+        alt="movieImg"
+        className="mr-8 h-32 md:h-40 "
+        onClick={playbutton}
+      />
     </>
   );
 };

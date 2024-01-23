@@ -5,7 +5,10 @@ const Body = () => {
   return (
     <>
       <div>
-        <Header />
+        <div className="w-screen h-20">
+          <Header />
+        </div>
+
         <Outlet />
       </div>
     </>

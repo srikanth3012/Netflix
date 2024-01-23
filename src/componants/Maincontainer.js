@@ -11,7 +11,7 @@ const MainContainer = () => {
 
   return (
     <>
-      <TrailerTiltles Title={original_title} overview={overview} />
+      <TrailerTiltles Title={original_title} overview={overview} id={id} />
       <TrailerVideo id={id} />{" "}
     </>
   );

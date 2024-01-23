@@ -41,7 +41,7 @@ const LogIn = () => {
             photoURL: Profile,
           })
             .then(() => {
-              navigate("/browser");
+              navigate("/");
               userLogIn(userCredential);
             })
             .catch((error) => {
@@ -64,7 +64,7 @@ const LogIn = () => {
         password.current.value
       )
         .then((userCredential) => {
-          navigate("/browser");
+          navigate("/");
           userLogIn(userCredential);
         })
 

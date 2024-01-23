@@ -6,24 +6,29 @@ import { Provider } from "react-redux";
 import store from "./utills/store";
 import Play from "./componants/Play";
 import Body from "./componants/Body";
+import GptSearch from "./componants/GptSearch";
 const approuter = createBrowserRouter([
   {
     path: "/",
-    element: <LogIn />,
-  },
-  {
-    path: "/browser",
     element: <Body />,
     children: [
       {
-        path: "/browser",
+        path: "/",
         element: <Browser />,
       },
       {
-        path: "/browser/play",
+        path: "/play/:id",
         element: <Play />,
       },
+      {
+        path: "/search",
+        element: <GptSearch />,
+      },
     ],
+  },
+  {
+    path: "/LogIn",
+    element: <LogIn />,
   },
 ]);
 
